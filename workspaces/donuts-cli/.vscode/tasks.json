@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"isBackground": true,
+			"type": "npm",
+			"script": "watch",
+			"group": "build",
+			"problemMatcher": [
+				{
+					"owner": "webpack",
+					"fileLocation": "relative",
+					"pattern": [
+						{
+							"regexp": "^(WARNING|ERROR) in (.+) (\\d+):(\\d+)-(\\d+)$",
+							"severity": 1,
+							"file": 2,
+							"line": 3,
+							"column": 4,
+							"endColumn": 5
+						},
+						{
+							"regexp": "^(.*)$",
+							"message": 1,
+							"loop": false
+						}
+					],
+					"background": {
+						"beginsPattern": "^Built at:",
+						"endsPattern": "^all done\\.$"
+					}
+				}
+			],
+			"label": "npm: watch",
+			"detail": "webpack -w"
+		}
+	]
+}

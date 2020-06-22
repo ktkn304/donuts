@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -u
+
+dn=$(type -p dn)
+test -n "$dn" || { echo 'dn command not found.'; exit 1; }
+
+$dn get-text --selected \
+    | eval "$@" \
+    | $dn insert-text --replace

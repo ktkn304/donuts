@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -u
+
+dn=$(type -p dn)
+test -n "$dn" || { echo 'dn command not found.'; exit 1; }
+
+export VSCODE_DONUTS_TERM_ID=$PPID
+
+original_name=$($dn get-terminal-name)
+name=$1
+shift
+$dn rename-terminal "--name=$name" "--terminal=$PPID"
+
+eval "$@"
+
+$dn rename-terminal "--name=$original_name"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -u
+
+dn=$(type -p dn)
+test -n "$dn" || { echo 'dn command not found.'; exit 1; }
+
+tee >(grep "$@" --line-buffered | xargs -n1 -I {} -- "$dn" show-message --message="{}")

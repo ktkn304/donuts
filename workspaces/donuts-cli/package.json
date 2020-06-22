@@ -1,0 +1,30 @@
+{
+  "name": "donuts-cli",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "dn": "bin/dn.js",
+    "dn-notify": "bin/dn-notify",
+    "dn-filter": "bin/dn-filter",
+    "dn-terminal": "bin/dn-terminal"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "author": "ktkn304",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.0",
+    "@types/yargs": "^15.0.4",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
